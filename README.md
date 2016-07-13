@@ -50,5 +50,5 @@ const mapDispatchToProps = {
 	componentDidMount: getAllTehDatas
 }
 
-export default connect(LifecycleComponent)
+export default connect(mapStateToProps, mapDispatchToProps)(LifecycleComponent)
 ```
