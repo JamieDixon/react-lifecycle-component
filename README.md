@@ -52,3 +52,5 @@ const mapDispatchToProps = {
 
 export default connect(mapStateToProps, mapDispatchToProps)(LifecycleComponent)
 ```
+
+We only pass the props to `MyActualComponent` that are intended for that component. We don't pass any of the lifecycle hook props and we don't forward the `component` prop on.
