@@ -24,7 +24,7 @@ class Wrapper extends Component {
 	}
 
 	render() {
-		<MyActualComponent {..this.props} />
+		<WrappedComponent {..this.props} />
 	}
 }
 
@@ -43,7 +43,7 @@ Using this small utility component we can do:
 
 ```
 const mapStateToProps = () => ({
-	component: MyActualComponent
+	component: WrappedComponent
 });
 
 const mapDispatchToProps = {
@@ -53,4 +53,20 @@ const mapDispatchToProps = {
 export default connect(mapStateToProps, mapDispatchToProps)(LifecycleComponent)
 ```
 
-We only pass the props to `MyActualComponent` that are intended for that component. We don't pass any of the lifecycle hook props and we don't forward the `component` prop on.
+To make matters clearer, you may not want to pass your component via the `component` prop and may instead want to wrap your component in a function call that wraps it in a `LifecycleComponent`.
+
+We provide `applyLifecycle` for this purpose and it can be used as:
+`export default connect(mapStateToProps, mapDispatchToProps)(applyLifecycle(WrappedComponent))`
+
+Composed this looks like:
+
+```
+conse composed = compose(connect(mapStateToProps, mapDispatchToProps), applyLifecycle);
+export default composed(WrappedComponent);
+```
+
+To help make this easier we also provide a redux helper that does this composition for you. The interface is therefore the same as `connect`.
+
+`export default connectWithLifecycle(mapStateToProps, mapDispatchToProps)(WrappedComponent)`
+
+We only pass the props to `WrappedComponent` that are intended for that component. We don't pass any of the lifecycle hook props and we don't forward the `component` prop on.
