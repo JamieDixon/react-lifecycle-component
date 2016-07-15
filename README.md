@@ -65,6 +65,7 @@ conse composed = compose(connect(mapStateToProps, mapDispatchToProps), applyLife
 export default composed(WrappedComponent);
 ```
 
+## Redux
 To help make this easier we also provide a redux helper that does this composition for you. The interface is therefore the same as `connect`.
 
 `export default connectWithLifecycle(mapStateToProps, mapDispatchToProps)(WrappedComponent)`
