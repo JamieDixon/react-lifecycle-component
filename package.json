@@ -1,0 +1,19 @@
+{
+  "name": "react-lifecycle-component",
+  "version": "1.0.0",
+  "description": "A higher order component that accepts lifecycle hook functions as props",
+  "main": "component.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JamieDixon/react-lifecycle-component.git"
+  },
+  "author": "Jamie Dixon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JamieDixon/react-lifecycle-component/issues"
+  },
+  "homepage": "https://github.com/JamieDixon/react-lifecycle-component#readme"
+}

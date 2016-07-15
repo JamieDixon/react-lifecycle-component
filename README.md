@@ -3,6 +3,8 @@ A higher order component that accepts lifecycle hook functions as props
 
 Allows you to wrap pure functional components so that you can take advantage of lifecycle hooks without having to create a new HOC each time to wrap your component.
 
+`npm i react-lifecycle-component`
+
 ## Problem
 
 There are many times when you've written a pure functional component but you also need to trigger some data loading on componentDidMount or similar.
