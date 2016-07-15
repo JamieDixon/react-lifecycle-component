@@ -1,6 +1,6 @@
 {
   "name": "react-lifecycle-component",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A higher order component that accepts lifecycle hook functions as props",
   "main": "component.js",
   "scripts": {
