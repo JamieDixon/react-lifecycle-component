@@ -3,7 +3,7 @@ import React, { PropTypes, Component } from 'react';
 
 export default class Lifecycle extends Component {
 	static propTypes = {
-		component: PropTypes.func.required,
+		component: PropTypes.func.isRequired,
 		componentDidMount: PropTypes.func,
 		componentDidUpdate: PropTypes.func,
 		componentWillMount: PropTypes.func,
