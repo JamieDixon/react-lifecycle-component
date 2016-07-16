@@ -1,7 +1,9 @@
 import LifecycleComponent from './src/component';
-import applyLifecyle from './src/applyLifecycle'
-import connectWithLifecycle from './src/redux-helpers/lifecyle-connect';
+import applyLifecycle from './src/applyLifecycle'
+import connectWithLifecycle from './src/redux-helpers/lifecycle-connect';
 
 export { LifecycleComponent };
-export { applyLifecyle };
+export { applyLifecycle };
 export { connectWithLifecycle };
+
+export default LifecycleComponent;
