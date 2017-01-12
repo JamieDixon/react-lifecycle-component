@@ -12,8 +12,10 @@ export default class Lifecycle extends Component {
 		componentWillUpdate: PropTypes.func
 	}
 
-	execute(fn, args, defaultValue) {
-		return fn ? fn(...args) : defaultValue;
+	displayName = 'Lifecycle';
+
+	execute(fn, args = [], defaultValue) {
+		return fn ? fn.call(this, ...args) : defaultValue;
 	}
 
 	componentWillMount() {
