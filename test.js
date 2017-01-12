@@ -1,4 +1,9 @@
 import { connectWithLifecycle } from './src/index';
 import React from 'react';
 
-console.log(connectWithLifecycle()(<div></div>));
+const props = {
+	componentWillReceiveProps: (nextProps, nextState) => {
+		console.log('nextProps', nextProps);
+	}
+}
+console.log(connectWithLifecycle(props)(<div></div>));
