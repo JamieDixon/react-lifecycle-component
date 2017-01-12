@@ -1,6 +1,6 @@
 {
   "name": "react-lifecycle-component",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "A higher order component that accepts lifecycle hook functions as props",
   "main": "lib/index.js",
   "scripts": {
@@ -36,7 +36,7 @@
     "rimraf": "^2.5.3"
   },
   "peerDependencies": {
-    "react": "latest",
+    "react": "^0.14.0 || ^15.0.0-0",
     "react-redux": "^4.0.0",
     "redux": "^2.0.0 || ^3.0.0"
   }
