@@ -12,10 +12,8 @@ export default class Lifecycle extends Component {
 		componentWillUpdate: PropTypes.func
 	}
 
-	execute(fn, args) {
-		if (fn) {
-			fn(...args);
-		}
+	execute(fn, args, defaultValue) {
+		return fn ? fn(...args) : defaultValue;
 	}
 
 	componentWillMount() {
@@ -43,7 +41,7 @@ export default class Lifecycle extends Component {
 	}
 
 	shouldComponentUpdate(...args) {
-		return this.execute(this.props.shouldComponentUpdate, args);
+		return this.execute(this.props.shouldComponentUpdate, args, true);
 	}
 
 	render() {
