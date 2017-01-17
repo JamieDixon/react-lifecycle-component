@@ -9,7 +9,8 @@ export default class Lifecycle extends Component {
 		componentWillMount: PropTypes.func,
 		componentWillReceiveProps: PropTypes.func,
 		componentWillUnmount: PropTypes.func,
-		componentWillUpdate: PropTypes.func
+		componentWillUpdate: PropTypes.func,
+		shouldComponentUpdate: PropTypes.func
 	}
 
 	execute(fn) {
