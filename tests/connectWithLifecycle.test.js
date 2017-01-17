@@ -32,6 +32,8 @@ describe('connectWithLifecycle', () => {
 		const store = createMockStore({});
 		const comp = render(<TestContainer />, store);
 		const tree = comp.toJSON();
-		expect(store.dispatch.mock.calls.length).toEqual(1);
+		const dispatchCalls = store.dispatch.mock.calls;
+		expect(dispatchCalls.length).toEqual(1);
+		expect(dispatchCalls[0][0].type).toEqual('FOO');
 	});
 })

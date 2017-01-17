@@ -13,10 +13,10 @@ export default class Lifecycle extends Component {
 		shouldComponentUpdate: PropTypes.func
 	}
 
-	execute(fn) {
-		if (fn) {
-			fn();
-		}
+	displayName = 'Lifecycle';
+
+	execute(fn, args = [], defaultValue) {
+		return fn ? fn.call(this, ...args) : defaultValue;
 	}
 
 	componentWillMount() {
@@ -27,20 +27,24 @@ export default class Lifecycle extends Component {
 		this.execute(this.props.componentDidMount);
 	}
 
-	componentWillReceiveProps() {
-		this.execute(this.props.componentWillReceiveProps);
+	componentWillReceiveProps(...args) {
+		this.execute(this.props.componentWillReceiveProps, args);
 	}
 
-	componentWillUpdate() {
-		this.execute(this.props.componentWillUpdate);
+	componentWillUpdate(...args) {
+		this.execute(this.props.componentWillUpdate, args);
 	}
 
-	componentDidUpdate() {
-		this.execute(this.props.componentDidUpdate);
+	componentDidUpdate(...args) {
+		this.execute(this.props.componentDidUpdate, args);
 	}
 
 	componentWillUnmount() {
 		this.execute(this.props.componentWillUnmount);
+	}
+
+	shouldComponentUpdate(...args) {
+		return this.execute(this.props.shouldComponentUpdate, args, true);
 	}
 
 	render() {
@@ -52,6 +56,7 @@ export default class Lifecycle extends Component {
 			componentWillUpdate,
 			componentDidUpdate,
 			componentWillUnmount,
+			shouldComponentUpdate,
 			...realProps } = this.props;
 		return <Comp {...realProps} />;
 	}
