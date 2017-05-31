@@ -1,5 +1,6 @@
 /*eslint-disable no-unused-vars*/
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class Lifecycle extends Component {
 	static propTypes = {

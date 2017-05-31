@@ -28,6 +28,7 @@
     "jest": "^18.1.0",
     "mocha": "^3.2.0",
     "mocha-jsdom": "^1.1.0",
+    "prop-types": "^15.5.10",
     "react": "latest",
     "react-dom": "^15.4.2",
     "react-redux": "^4.0.0",
