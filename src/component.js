@@ -11,7 +11,8 @@ export default class Lifecycle extends Component {
 		componentWillReceiveProps: PropTypes.func,
 		componentWillUnmount: PropTypes.func,
 		componentWillUpdate: PropTypes.func,
-		shouldComponentUpdate: PropTypes.func
+		shouldComponentUpdate: PropTypes.func,
+		componentDidCatch: PropTypes.func
 	}
 
 	displayName = 'Lifecycle';
@@ -48,6 +49,10 @@ export default class Lifecycle extends Component {
 		return this.execute(this.props.shouldComponentUpdate, args, true);
 	}
 
+	componentDidCatch(error, info) {
+		this.execute(this.props.componentDidCatch, [error, info]);
+	}
+
 	render() {
 		const Comp = this.props.component;
 		const {
@@ -58,6 +63,7 @@ export default class Lifecycle extends Component {
 			componentDidUpdate,
 			componentWillUnmount,
 			shouldComponentUpdate,
+			componentDidCatch,
 			...realProps } = this.props;
 		return <Comp {...realProps} />;
 	}
