@@ -1,4 +1,6 @@
-exports[`test Props are passed to wrapped component and can be rendered 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Props are passed to wrapped component and can be rendered 1`] = `
 <div>
   React Lifecycle Component 
   is the best
