@@ -1,9 +1,12 @@
 # react-lifecycle-component
+
 A higher order component that accepts lifecycle hook functions as props
 
 Allows you to wrap pure functional components so that you can take advantage of lifecycle hooks without having to create a new HOC each time to wrap your component.
 
-`npm i react-lifecycle-component --save`
+```
+npm install react-lifecycle-component --save
+```
 
 ## Problem
 
@@ -19,37 +22,37 @@ A Redux example:
 
 Rather than creating a new HOC and doing this:
 
-```
+```js
 class Wrapper extends Component {
-	componentDidMount() {
-		this.props.getAllTehDatas();
-	}
+  componentDidMount() {
+    this.props.getAllTehDatas()
+  }
 
-	render() {
-		<WrappedComponent {..this.props} />
-	}
+  render() {
+    return <WrappedComponent {...this.props} />
+  }
 }
 
 const mapStateToProps = () => ({
-
-});
+  // ...
+})
 
 const mapDispatchToProps = {
-	getAllTehDatas
-};
+  getAllTehDatas
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Wrapper);
+export default connect(mapStateToProps, mapDispatchToProps)(Wrapper)
 ```
 
 Using this small utility component we can do:
 
-```
+```js
 const mapStateToProps = () => ({
-	component: WrappedComponent
-});
+  component: WrappedComponent
+})
 
 const mapDispatchToProps = {
-	componentDidMount: getAllTehDatas
+  componentDidMount: getAllTehDatas
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LifecycleComponent)
@@ -62,14 +65,18 @@ We provide `applyLifecycle` for this purpose and it can be used as:
 
 Composed this looks like:
 
-```
-conse composed = compose(connect(mapStateToProps, mapDispatchToProps), applyLifecycle);
-export default composed(WrappedComponent);
+```js
+const composed = compose(connect(mapStateToProps, mapDispatchToProps), applyLifecycle)
+
+export default composed(WrappedComponent)
 ```
 
 ## Redux
+
 To help make this easier we also provide a redux helper that does this composition for you. The interface is therefore the same as `connect`.
 
-`export default connectWithLifecycle(mapStateToProps, mapDispatchToProps)(WrappedComponent)`
+```js
+export default connectWithLifecycle(mapStateToProps, mapDispatchToProps)(WrappedComponent)
+```
 
 We only pass the props to `WrappedComponent` that are intended for that component. We don't pass any of the lifecycle hook props and we don't forward the `component` prop on.
