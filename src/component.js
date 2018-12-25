@@ -1,10 +1,17 @@
 /*eslint-disable no-unused-vars*/
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { isValidElementType } from "react-is";
 
 export default class Lifecycle extends Component {
 	static propTypes = {
-		component: PropTypes.func.isRequired,
+		component: (props, propName) => {
+			if (isValidElementType(props[propName])) {
+				return null;
+			} else {
+				return new Error(`Invalid prop \`${propName}\` of type \`${typeof props[propName]}\` supplied to \`Lifecycle\`, expected \`elementType\`.`);
+			}
+		},
 		componentDidMount: PropTypes.func,
 		componentDidUpdate: PropTypes.func,
 		componentWillMount: PropTypes.func,
